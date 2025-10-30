@@ -1,21 +1,19 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        // Create a HashMap to store number → index
-        HashMap<Integer, Integer> map = new HashMap<>();
-        
-        for (int i = 0; i < nums.length; i++) {
-            int complement = target - nums[i];  // The number we need to find
-            
-            // If complement exists in map, return both indices
-            if (map.containsKey(complement)) {
-                return new int[] { map.get(complement), i };
+        int n=nums.length; //nums is the given array here in the questain 
+        int[] ans=new int[2];//this array we will return as answer 
+        for(int i=0;i<n;i++ ){
+            for(int j=i+1;j<n;j++){
+                if(nums[i]+nums[j]==target){// it will find the number target
+                ans[0]=i;
+                ans[1]=j;
+                break;
+
+                }
             }
-            
-            // Otherwise, store the current number and its index
-            map.put(nums[i], i);
         }
-        
-        // If no pair found (though problem says one always exists)
-        return new int[] {};
+        return ans;
+
+
     }
 }
